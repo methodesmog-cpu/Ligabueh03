@@ -47,3 +47,35 @@ nav a:hover { background:#176044; color:#fff; }
   color:#176044 !important;
   font-weight:800;
 }
+
+/* Barre défilante ALC — palette du site */
+.alc-ticker{
+  width:100%;
+  overflow:hidden;
+  background:var(--green2);
+  color:var(--gold2);
+  border-top:1px solid var(--gold);
+  border-bottom:1px solid var(--gold);
+  white-space:nowrap;
+  position:relative;
+  z-index:60;
+}
+.alc-ticker-track{
+  display:inline-flex;
+  align-items:center;
+  min-width:max-content;
+  animation:alcTickerMove 18s linear infinite;
+  will-change:transform;
+}
+.alc-ticker-track span{
+  display:inline-block;
+  padding:9px 55px;
+  color:var(--gold2);
+  font-size:.82rem;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+@keyframes alcTickerMove{
+  from{transform:translateX(0)}
+  to{transform:translateX(-33.3333%)}
+}

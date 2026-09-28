@@ -79,3 +79,68 @@ nav a:hover { background:#176044; color:#fff; }
   from{transform:translateX(0)}
   to{transform:translateX(-33.3333%)}
 }
+
+
+/* Bannière ALC — texte agrandi, répétitif, cadre jaune et défilement continu */
+.alc-title-box{
+  width:100%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  position:relative;
+  z-index:60;
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  border-top:4px solid var(--gold2);
+  border-bottom:4px solid var(--gold2);
+  box-shadow:0 8px 25px #061c1530;
+}
+
+.alc-marquee{
+  width:100%;
+  overflow:hidden;
+  white-space:nowrap;
+  padding:20px 0;
+}
+
+.alc-marquee-track{
+  display:flex;
+  width:max-content;
+  will-change:transform;
+  animation:alcContinuousMove 28s linear infinite;
+}
+
+.alc-marquee-track span{
+  flex:0 0 auto;
+  display:block;
+  padding-right:130px;
+  color:var(--gold2);
+  font-size:clamp(1.35rem,2.8vw,2.5rem);
+  line-height:1.15;
+  font-weight:900;
+  letter-spacing:.045em;
+  text-align:center;
+  text-shadow:0 2px 8px #0008;
+}
+
+@keyframes alcContinuousMove{
+  from{transform:translateX(0)}
+  to{transform:translateX(-25%)}
+}
+
+@media(max-width:600px){
+  .alc-marquee{padding:15px 0}
+  .alc-marquee-track{animation-duration:22s}
+  .alc-marquee-track span{
+    padding-right:75px;
+    font-size:1.25rem;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .alc-marquee-track{
+    animation:none;
+    width:100%;
+    justify-content:center;
+  }
+  .alc-marquee-track span[aria-hidden="true"]{display:none}
+}
